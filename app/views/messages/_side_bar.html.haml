@@ -2,12 +2,12 @@
   .side-header
     .side-header__contents
       .side-header__contents__user-name
-        Koiwa
+        = current_user.name
       .side-header__contents__icons
         = link_to "#", class: "side-header__contents__icons__icon" do
           = icon('far', 'edit')
           %span<>
-        = link_to "#", class: "side-header__contents__icons__icon" do
+        = link_to edit_user_path(current_user), class: "side-header__contents__icons__icon" do
           = icon('fas', 'cog')
           %span<>
   .group-list

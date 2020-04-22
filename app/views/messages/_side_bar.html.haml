@@ -4,20 +4,16 @@
       .side-header__contents__user-name
         = current_user.name
       .side-header__contents__icons
-        = link_to "#", class: "side-header__contents__icons__icon" do
+        = link_to new_group_path, class: "side-header__contents__icons__icon" do
           = icon('far', 'edit')
           %span<>
         = link_to edit_user_path(current_user), class: "side-header__contents__icons__icon" do
           = icon('fas', 'cog')
           %span<>
   .group-list
-    .group
-      .group__group-name
-        tech camp
-      .group__latest-message
-        まだメッセージがありません
-    .group
-      .group__group-name
-        tech expert
-      .group__latest-message
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#', class: "group__group-name" do
+          = group.name
+        .group__latest-message
+          まだメッセージがありません

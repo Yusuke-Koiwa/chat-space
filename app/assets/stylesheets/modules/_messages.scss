@@ -49,9 +49,11 @@ $sky-blue: #38aef0;
       color: $white;
       padding: 20px 20px 40px;
       &__group-name {
+        color: $white;
         font-size: 15px;
         margin-bottom: 5px;
         line-height: 15px;
+        text-decoration: none;
       }
       &__latest-message {
         font-size: 11px;

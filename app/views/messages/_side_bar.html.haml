@@ -1,0 +1,23 @@
+.side-bar
+  .side-header
+    .side-header__contents
+      .side-header__contents__user-name
+        Koiwa
+      .side-header__contents__icons
+        = link_to "#", class: "side-header__contents__icons__icon" do
+          = icon('far', 'edit')
+          %span<>
+        = link_to "#", class: "side-header__contents__icons__icon" do
+          = icon('fas', 'cog')
+          %span<>
+  .group-list
+    .group
+      .group__group-name
+        tech camp
+      .group__latest-message
+        まだメッセージがありません
+    .group
+      .group__group-name
+        tech expert
+      .group__latest-message
+        まだメッセージがありません

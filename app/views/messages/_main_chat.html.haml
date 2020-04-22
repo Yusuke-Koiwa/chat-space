@@ -1,0 +1,42 @@
+.chat-main
+  .main-header
+    .main-header__info
+      .main-header__info__group-name
+        tech camp
+      .main-header__info__member-list
+        Member : Koiwa
+    = link_to "#", class: "main-header__edit-btn" do
+      Edit
+  .message-list
+    .message
+      .message__top
+        .message__top__user-name
+          Koiwa
+        .message__top__date
+          2020/04/21(Tue) 13:24:27
+      .message__botom
+        こんにちは。
+    .message
+      .message__top
+        .message__top__user-name
+          Koiwa
+        .message__top__date
+          2020/04/21(Tue) 20:17:08
+      .message__botom
+        こんばんは。
+    .message
+      .message__top
+        .message__top__user-name
+          Koiwa
+        .message__top__date
+          2020/04/21(Tue) 23:55:35
+      .message__botom
+        おやすみなさい。
+  .message-form
+    .form-items
+      .form-items__input
+        %input{type: "text", class: "form-items__input__text", placeholder: "type a message"}
+        %label{class: "form-items__input__image"}
+          = icon('fas', 'image')
+          %input{type: "file"}
+      %input{type: "submit", class: "form-items__send-btn", value: "Send"}

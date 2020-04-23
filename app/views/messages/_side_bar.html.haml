@@ -13,7 +13,7 @@
   .group-list
     - current_user.groups.each do |group|
       .group
-        = link_to '#', class: "group__group-name" do
+        = link_to group_messages_path(group.id), class: "group__group-name" do
           = group.name
         .group__latest-message
-          まだメッセージがありません
+          = group.show_last_message

@@ -1,0 +1,13 @@
+.message
+  .message__top
+    .message__top__user-name
+      = message.user.name
+    .message__top__date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .message__botom
+    - if message.body.present?
+      .message__bottom__text
+        = message.body
+    - if message.image.present?    
+      .message__bottom__image
+        = image_tag message.image

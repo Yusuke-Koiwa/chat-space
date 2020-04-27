@@ -7,8 +7,8 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   def self.search(input, id)
-    return nil if params[;keyword] == ""
-    User.where('name Like ?', "%#{input}%").where.not(id: id).limit(10)
+    return nil if input == ""
+    User.where(['name Like ?', "%#{input}%"]).where.not(id: id).limit(10)
   end
 
 end

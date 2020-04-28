@@ -1,4 +1,28 @@
 $(function(){
+
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').data("message-id");
+    $.ajax({
+      url: 'api/messages',
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages){
+      if (messages.length !== 0) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message);
+        });
+        $('.message-list').append(insertHTML);
+        $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight});
+      }
+    })
+    .fail(function(){
+      alert('error!');
+    });
+  };
+
   function buildHTML(message) {
     var message_top =
       `<div class="message__top">
@@ -11,7 +35,7 @@ $(function(){
       </div>`
     if (message.image) {
       var html =
-        `<div class="message">
+        `<div class="message" data-message-id=${message.id}>
           ${message_top}
           <div class="message__bottom">
             <p class="message__bottom__text">
@@ -23,7 +47,7 @@ $(function(){
       return html;
     } else {
       var html =
-        `<div class="message">
+        `<div class="message" data-message-id=${message.id}>
           ${message_top}
           <div class="message__bottom">
             <p class="message__bottom__text">
@@ -59,4 +83,8 @@ $(function(){
       $('.form-items__send-btn').prop("disabled", false);
     });
   });
+
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });

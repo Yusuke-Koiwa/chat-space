@@ -30,7 +30,7 @@
 
         - @group.users.each do |user|
           - if user.id != current_user.id
-            .chat-group-user
+            .chat-group-user{class: "add-user-#{user.id}"}
               %input{name: "group[user_ids][]", type: "hidden", value: user.id}
               %p.chat-group-user__name= user.name
               .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
